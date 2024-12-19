@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.org.Product.dto.Product;
 import com.org.Product.service.ProductService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 
 @RestController
 public class ProductController {
@@ -25,7 +27,7 @@ public class ProductController {
 	@Autowired
 	ProductService service;
 	
-	
+	@Operation(summary = "Saving One Product")
 	@PostMapping("/products")
 	public ResponseEntity<Object> saveProduct(@RequestBody Product product){
 		return service.saveProduct(product);
